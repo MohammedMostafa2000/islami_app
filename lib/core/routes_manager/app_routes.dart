@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/screens/hadith_details.dart';
 import 'package:islami_app/screens/home.dart';
+import 'package:islami_app/screens/onboarding_screen.dart';
 import 'package:islami_app/screens/quran_details.dart';
 import 'package:islami_app/screens/splash.dart';
 
@@ -9,12 +10,14 @@ class AppRoutes {
   static const String home = '/home';
   static const String quranDetails = '/quranDetails';
   static const String hadithDetails = '/hadithDetails';
+  static const String onBoardingScreen = '/onBoardingScreen';
 
   static Map<String, WidgetBuilder> routes = {
     splash: (_) => Splash(),
     home: (_) => Home(),
     quranDetails:(_)=>QuranDetails(),
     hadithDetails:(_)=>HadithDetails(),
+    onBoardingScreen:(_)=>OnBoardingScreen(),
     
   };
 }
