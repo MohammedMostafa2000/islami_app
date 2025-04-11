@@ -13,4 +13,16 @@ class ImagesManager {
   static const String suraDetailsBackground = 'assets/images/sura_details_background.png';
   static const String hadithBackground = 'assets/images/hadith_background.png';
   static const String timeTabBackground = 'assets/images/time_tab_background.png';
+  static const String onboarding1 = 'assets/images/onboarding1.png';
+  static const String onboarding2 = 'assets/images/onboarding2.png';
+  static const String onboarding3 = 'assets/images/onboarding3.png';
+  static const String onboarding4 = 'assets/images/onboarding4.png';
+  static const String onboarding5 = 'assets/images/onboarding5.png';
+  static const String eveningAzkar = 'assets/images/evening_azkar.png';
+  static const String morningAzkar = 'assets/images/morning_azkar.png';
+  static const String wakingAzkar = 'assets/images/waking_azkar.png';
+  static const String sleepingAzkar = 'assets/images/sleeping_azkar.png';
+
+
+
 }

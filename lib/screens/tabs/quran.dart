@@ -2,12 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:islami_app/core/colors_manager.dart';
 import 'package:islami_app/core/constants.dart';
 import 'package:islami_app/core/images_manager.dart';
+import 'package:islami_app/core/prefs_handler/prefs_handler.dart';
 import 'package:islami_app/widgets/most_recently_sura_card.dart';
-import 'package:islami_app/widgets/sura_details.dart';
+import 'package:islami_app/widgets/sura_widget.dart';
 import 'package:islami_app/widgets/sura_search_text_form_field.dart';
 
-class Quran extends StatelessWidget {
+class Quran extends StatefulWidget {
   const Quran({super.key});
+
+  @override
+  State<Quran> createState() => _QuranState();
+}
+
+class _QuranState extends State<Quran> {
+  List<SuraDataModel> mostRecentSuras = [];
+
+  @override
+  void initState() {
+    super.initState();
+    loadMostRecentSuras();
+  }
+
+  void loadMostRecentSuras() async {
+    mostRecentSuras = await PrefsHandler.getMostRecentSuras();
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,8 +70,9 @@ class Quran extends StatelessWidget {
                     SizedBox(
                       height: 150,
                       child: ListView.builder(
-                        itemCount: 6,
-                        itemBuilder: (context, index) => MostRecentlySuraCard(),
+                        itemCount: mostRecentSuras.length,
+                        itemBuilder: (context, index) =>
+                            MostRecentlySuraCard(suraDataModel: mostRecentSuras[index]),
                         physics: BouncingScrollPhysics(),
                         scrollDirection: Axis.horizontal,
                       ),
@@ -72,7 +92,7 @@ class Quran extends StatelessWidget {
               ),
               SliverList(
                 delegate: SliverChildBuilderDelegate(
-                  (context, index) => SuraDetails(
+                  (context, index) => SuraWidget(
                     index: index,
                     suraDataModel: ConstantsManager.surasList[index],
                   ),
