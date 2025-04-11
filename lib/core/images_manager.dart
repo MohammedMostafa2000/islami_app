@@ -18,5 +18,11 @@ class ImagesManager {
   static const String onboarding3 = 'assets/images/onboarding3.png';
   static const String onboarding4 = 'assets/images/onboarding4.png';
   static const String onboarding5 = 'assets/images/onboarding5.png';
+  static const String eveningAzkar = 'assets/images/evening_azkar.png';
+  static const String morningAzkar = 'assets/images/morning_azkar.png';
+  static const String wakingAzkar = 'assets/images/waking_azkar.png';
+  static const String sleepingAzkar = 'assets/images/sleeping_azkar.png';
+
+
 
 }

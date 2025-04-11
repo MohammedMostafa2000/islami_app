@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/core/colors_manager.dart';
+import 'package:islami_app/core/constants.dart';
 import 'package:islami_app/core/images_manager.dart';
 
 class MostRecentlySuraCard extends StatelessWidget {
   const MostRecentlySuraCard({
     super.key,
+    required this.suraDataModel,
   });
+  final SuraDataModel suraDataModel;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +34,7 @@ class MostRecentlySuraCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Al-Anbiya',
+                    suraDataModel.suraNameEn,
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -39,7 +42,7 @@ class MostRecentlySuraCard extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    'الأنبياء',
+                    suraDataModel.suraNameAr,
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -47,7 +50,7 @@ class MostRecentlySuraCard extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    '112 Verses',
+                    suraDataModel.versesNumber,
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
@@ -56,7 +59,10 @@ class MostRecentlySuraCard extends StatelessWidget {
                   ),
                 ],
               ),
-              Image.asset(ImagesManager.suraImage,height: 100,),
+              Image.asset(
+                ImagesManager.suraImage,
+                height: 100,
+              ),
             ],
           ),
         ),

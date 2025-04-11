@@ -12,6 +12,13 @@ class SuraDataModel {
   });
 }
 
+class AzkarDataModel {
+  String image;
+  String title;
+
+  AzkarDataModel({required this.image, required this.title});
+}
+
 class ConstantsManager {
   static List<SuraDataModel> surasList = [
     SuraDataModel(suraIndex: 1, suraNameEn: "Al-Fatiha", suraNameAr: "الفاتحة", versesNumber: "7"),

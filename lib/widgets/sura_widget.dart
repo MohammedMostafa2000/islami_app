@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:islami_app/core/colors_manager.dart';
 import 'package:islami_app/core/constants.dart';
 import 'package:islami_app/core/icons_manager.dart';
+import 'package:islami_app/core/prefs_handler/prefs_handler.dart';
 import 'package:islami_app/core/routes_manager/app_routes.dart';
 
-class SuraDetails extends StatelessWidget {
-  const SuraDetails({
+class SuraWidget extends StatelessWidget {
+  const SuraWidget({
     super.key,
     required this.suraDataModel,
     required this.index,
@@ -20,7 +21,8 @@ class SuraDetails extends StatelessWidget {
         children: [
           InkWell(
             onTap: () {
-              Navigator.pushNamed(context, AppRoutes.quranDetails,arguments: suraDataModel);
+              PrefsHandler.addSuraIndex(index);
+              Navigator.pushNamed(context, AppRoutes.quranDetails, arguments: suraDataModel);
             },
             child: Row(
               children: [
