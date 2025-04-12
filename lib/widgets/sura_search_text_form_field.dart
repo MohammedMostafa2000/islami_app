@@ -5,11 +5,13 @@ import 'package:islami_app/core/icons_manager.dart';
 class SuraSearchTextFormField extends StatelessWidget {
   const SuraSearchTextFormField({
     super.key,
+    required this.onChanged,
   });
-
+  final void Function(String)? onChanged;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onChanged: onChanged,
       style: TextStyle(
         color: ColorsManager.offWhite,
         fontSize: 16,
@@ -55,4 +57,3 @@ class SuraSearchTextFormField extends StatelessWidget {
     );
   }
 }
-
