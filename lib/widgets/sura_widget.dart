@@ -34,7 +34,7 @@ class SuraWidget extends StatelessWidget {
                       height: 52,
                     ),
                     Text(
-                      '${index + 1}',
+                      '$index',
                       style: TextStyle(
                         color: ColorsManager.white,
                         fontSize: 14,

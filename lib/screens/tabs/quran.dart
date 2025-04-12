@@ -16,11 +16,14 @@ class Quran extends StatefulWidget {
 
 class _QuranState extends State<Quran> {
   List<SuraDataModel> mostRecentSuras = [];
+  String searchKey = '';
+  List<SuraDataModel> filteredList = [];
 
   @override
   void initState() {
     super.initState();
     loadMostRecentSuras();
+    filteredList = ConstantsManager.surasList;
   }
 
   void loadMostRecentSuras() async {
@@ -56,7 +59,22 @@ class _QuranState extends State<Quran> {
                       ),
                     ),
                     SizedBox(height: 20),
-                    SuraSearchTextFormField(),
+                    SuraSearchTextFormField(
+                      onChanged: (value) {
+                        searchKey = value;
+                        if (searchKey.isEmpty) {
+                          filteredList = ConstantsManager.surasList;
+                        } else {
+                          filteredList = ConstantsManager.surasList
+                              .where((sura) =>
+                                  sura.suraNameEn.toLowerCase().contains(searchKey.toLowerCase()) ||
+                                  sura.suraNameAr.contains(searchKey))
+                              .toList();
+                        }
+
+                        setState(() {});
+                      },
+                    ),
                     SizedBox(height: 20),
                     Text(
                       'Most Recently',
@@ -93,10 +111,10 @@ class _QuranState extends State<Quran> {
               SliverList(
                 delegate: SliverChildBuilderDelegate(
                   (context, index) => SuraWidget(
-                    index: index,
-                    suraDataModel: ConstantsManager.surasList[index],
+                    index: filteredList[index].suraIndex,
+                    suraDataModel: filteredList[index],
                   ),
-                  childCount: 114,
+                  childCount: filteredList.length,
                 ),
               ),
             ],
