@@ -3,6 +3,7 @@ import 'package:introduction_screen/introduction_screen.dart';
 import 'package:islami_app/core/colors_manager.dart';
 import 'package:islami_app/core/images_manager.dart';
 import 'package:islami_app/core/routes_manager/app_routes.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({super.key});
@@ -176,8 +177,10 @@ class OnBoardingScreen extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                onDone: () {
+                onDone: () async {
                   Navigator.pushNamed(context, AppRoutes.home);
+                  SharedPreferences prefs = await SharedPreferences.getInstance();
+                  await prefs.setBool('isFirstTime', false);
                 },
               ),
             ),
