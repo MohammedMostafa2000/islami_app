@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:islami_app/core/colors_manager.dart';
 import 'package:islami_app/core/constants.dart';
 import 'package:islami_app/core/images_manager.dart';
-import 'package:islami_app/core/prefs_handler/prefs_handler.dart';
+import 'package:islami_app/providers/most_recent_suras_provider.dart';
 import 'package:islami_app/widgets/most_recently_sura_card.dart';
 import 'package:islami_app/widgets/sura_widget.dart';
 import 'package:islami_app/widgets/sura_search_text_form_field.dart';
+import 'package:provider/provider.dart';
 
 class Quran extends StatefulWidget {
   const Quran({super.key});
@@ -15,20 +16,14 @@ class Quran extends StatefulWidget {
 }
 
 class _QuranState extends State<Quran> {
-  List<SuraDataModel> mostRecentSuras = [];
   String searchKey = '';
   List<SuraDataModel> filteredList = [];
 
   @override
   void initState() {
     super.initState();
-    loadMostRecentSuras();
+    Provider.of<MostRecentSurasProvider>(context, listen: false).loadMostRecentSuras();
     filteredList = ConstantsManager.surasList;
-  }
-
-  void loadMostRecentSuras() async {
-    mostRecentSuras = await PrefsHandler.getMostRecentSuras();
-    setState(() {});
   }
 
   @override
@@ -85,15 +80,20 @@ class _QuranState extends State<Quran> {
                       ),
                     ),
                     SizedBox(height: 10),
-                    SizedBox(
-                      height: 150,
-                      child: ListView.builder(
-                        itemCount: mostRecentSuras.length,
-                        itemBuilder: (context, index) =>
-                            MostRecentlySuraCard(suraDataModel: mostRecentSuras[index]),
-                        physics: BouncingScrollPhysics(),
-                        scrollDirection: Axis.horizontal,
-                      ),
+                    Consumer<MostRecentSurasProvider>(
+                      builder: (context, provider, child) {
+                        final mostRecentSuras = provider.mostRecentSuras;
+                        return SizedBox(
+                          height: 150,
+                          child: ListView.builder(
+                            itemCount: mostRecentSuras.length,
+                            itemBuilder: (context, index) =>
+                                MostRecentlySuraCard(suraDataModel: mostRecentSuras[index]),
+                            physics: BouncingScrollPhysics(),
+                            scrollDirection: Axis.horizontal,
+                          ),
+                        );
+                      },
                     ),
                     SizedBox(height: 10),
                     Text(

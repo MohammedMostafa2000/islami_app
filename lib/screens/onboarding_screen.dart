@@ -21,6 +21,7 @@ class OnBoardingScreen extends StatelessWidget {
             SizedBox(height: 80),
             Expanded(
               child: IntroductionScreen(
+                
                 pages: [
                   PageViewModel(
                     decoration: PageDecoration(
@@ -46,7 +47,9 @@ class OnBoardingScreen extends StatelessWidget {
                     ),
                   ),
                   PageViewModel(
+                    
                     decoration: PageDecoration(
+
                       imagePadding: EdgeInsets.all(0),
                       titlePadding: EdgeInsets.only(bottom: 50),
                       pageMargin: EdgeInsets.all(0),

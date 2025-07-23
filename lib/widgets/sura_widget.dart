@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:islami_app/core/colors_manager.dart';
 import 'package:islami_app/core/constants.dart';
 import 'package:islami_app/core/icons_manager.dart';
-import 'package:islami_app/core/prefs_handler/prefs_handler.dart';
 import 'package:islami_app/core/routes_manager/app_routes.dart';
+import 'package:islami_app/providers/most_recent_suras_provider.dart';
+import 'package:provider/provider.dart';
 
 class SuraWidget extends StatelessWidget {
   const SuraWidget({
@@ -21,8 +22,9 @@ class SuraWidget extends StatelessWidget {
         children: [
           InkWell(
             onTap: () {
-              PrefsHandler.addSuraIndex(index);
               Navigator.pushNamed(context, AppRoutes.quranDetails, arguments: suraDataModel);
+              Provider.of<MostRecentSurasProvider>(context, listen: false)
+                  .addSuraToMostRecent(index - 1);
             },
             child: Row(
               children: [

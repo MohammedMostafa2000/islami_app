@@ -2,10 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:islami_app/core/colors_manager.dart';
 
 class PrayTimeCard extends StatelessWidget {
-  const PrayTimeCard({super.key});
+  const PrayTimeCard({
+    super.key,
+    required this.title,
+    required this.time,
+  });
+  final String title;
+  final String time;
 
   @override
   Widget build(BuildContext context) {
+    final formatted = _formatTime(time);
+
     return Container(
       height: double.infinity,
       width: double.infinity,
@@ -25,7 +33,7 @@ class PrayTimeCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Text(
-            'Asr',
+            title,
             style: TextStyle(
               color: ColorsManager.white,
               fontSize: 16,
@@ -33,7 +41,7 @@ class PrayTimeCard extends StatelessWidget {
             ),
           ),
           Text(
-            '04:38',
+            formatted['formattedTime']!,
             style: TextStyle(
               color: ColorsManager.white,
               fontSize: 24,
@@ -41,7 +49,7 @@ class PrayTimeCard extends StatelessWidget {
             ),
           ),
           Text(
-            'PM',
+            formatted['period']!,
             style: TextStyle(
               color: ColorsManager.white,
               fontSize: 16,
@@ -51,5 +59,25 @@ class PrayTimeCard extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+Map<String, String> _formatTime(String time) {
+  try {
+    final timeParts = time.split(':');
+    int hour = int.parse(timeParts[0]);
+    final minute = timeParts[1];
+    final period = hour >= 12 ? 'PM' : 'AM';
+    if (hour > 12) hour -= 12;
+    if (hour == 0) hour = 12;
+    return {
+      'formattedTime': '$hour:$minute',
+      'period': period,
+    };
+  } catch (e) {
+    return {
+      'formattedTime': time,
+      'period': '',
+    };
   }
 }
