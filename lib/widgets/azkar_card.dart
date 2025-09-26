@@ -30,7 +30,7 @@ class AzkarCard extends StatelessWidget {
           ),
           Text(
             azkarDataModel.title,
-            style: TextStyle(
+            style: const TextStyle(
               color: ColorsManager.white,
               fontSize: 20,
               fontWeight: FontWeight.bold,

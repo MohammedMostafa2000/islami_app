@@ -7,7 +7,7 @@ void main() {
   runApp(
     ChangeNotifierProvider(
       create: (context) => MostRecentSurasProvider(),
-      child: IslamiApp(),
+      child: const IslamiApp(),
     ),
   );
 }

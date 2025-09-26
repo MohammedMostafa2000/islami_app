@@ -43,7 +43,7 @@ class _HadithDetailsState extends State<HadithDetails> {
                       height: 100,
                       width: 90,
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Image.asset(
                       ImagesManager.rightQuranDetailsPattern,
                       height: 100,
@@ -53,7 +53,7 @@ class _HadithDetailsState extends State<HadithDetails> {
                 ),
                 Text(
                   'الحديث $hadithIndex',
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: ColorsManager.gold,
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
@@ -61,7 +61,7 @@ class _HadithDetailsState extends State<HadithDetails> {
                 ),
               ],
             ),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             SuraOrHadithContent(content: hadithContent),
             Image.asset(ImagesManager.suraDetailsBackground),
           ],

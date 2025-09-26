@@ -22,7 +22,8 @@ class SuraWidget extends StatelessWidget {
         children: [
           InkWell(
             onTap: () {
-              Navigator.pushNamed(context, AppRoutes.quranDetails, arguments: suraDataModel);
+              Navigator.pushNamed(context, AppRoutes.quranDetails,
+                  arguments: suraDataModel);
               Provider.of<MostRecentSurasProvider>(context, listen: false)
                   .addSuraToMostRecent(index - 1);
             },
@@ -37,7 +38,7 @@ class SuraWidget extends StatelessWidget {
                     ),
                     Text(
                       '$index',
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: ColorsManager.white,
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
@@ -45,13 +46,13 @@ class SuraWidget extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(width: 24),
+                const SizedBox(width: 24),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       suraDataModel.suraNameEn,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: ColorsManager.white,
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -59,7 +60,7 @@ class SuraWidget extends StatelessWidget {
                     ),
                     Text(
                       suraDataModel.versesNumber,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: ColorsManager.white,
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
@@ -67,10 +68,10 @@ class SuraWidget extends StatelessWidget {
                     ),
                   ],
                 ),
-                Spacer(),
+                const Spacer(),
                 Text(
                   suraDataModel.suraNameAr,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: ColorsManager.white,
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -79,7 +80,7 @@ class SuraWidget extends StatelessWidget {
               ],
             ),
           ),
-          Divider(
+          const Divider(
             indent: 40,
             endIndent: 40,
           ),

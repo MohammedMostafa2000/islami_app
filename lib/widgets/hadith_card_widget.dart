@@ -28,7 +28,8 @@ class _HadithCardWidgetState extends State<HadithCardWidget> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, AppRoutes.hadithDetails, arguments: [hadithContent,widget.hadithIndex]);
+        Navigator.pushNamed(context, AppRoutes.hadithDetails,
+            arguments: [hadithContent, widget.hadithIndex]);
       },
       child: Container(
         height: double.infinity,
@@ -61,7 +62,7 @@ class _HadithCardWidgetState extends State<HadithCardWidget> {
                   ),
                   Text(
                     'الحديث ${widget.hadithIndex}',
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: ColorsManager.black,
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -79,7 +80,7 @@ class _HadithCardWidgetState extends State<HadithCardWidget> {
                   children: [
                     Expanded(
                       child: hadithContent == ''
-                          ? Center(
+                          ? const Center(
                               child: CircularProgressIndicator(
                               color: ColorsManager.black,
                             ))
@@ -88,7 +89,7 @@ class _HadithCardWidgetState extends State<HadithCardWidget> {
                               maxLines: 15,
                               overflow: TextOverflow.ellipsis,
                               textAlign: TextAlign.right,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold,
                                   color: ColorsManager.black),
@@ -115,8 +116,8 @@ class _HadithCardWidgetState extends State<HadithCardWidget> {
   }
 
   void loadHadithContent(int hadithIndex) async {
-    String fileContent =
-        await rootBundle.loadString('assets/files/hadeeth/h${widget.hadithIndex}.txt');
+    String fileContent = await rootBundle
+        .loadString('assets/files/hadeeth/h${widget.hadithIndex}.txt');
     var hadithLines = fileContent.trim().split('\n');
     List<String> hadithLinesFinal = [];
     for (var i = 1; i < hadithLines.length; i++) {

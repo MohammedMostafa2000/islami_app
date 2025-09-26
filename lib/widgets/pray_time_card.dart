@@ -18,7 +18,7 @@ class PrayTimeCard extends StatelessWidget {
       height: double.infinity,
       width: double.infinity,
       decoration: BoxDecoration(
-        gradient: LinearGradient(
+        gradient: const LinearGradient(
           colors: [
             ColorsManager.black,
             ColorsManager.softGold,
@@ -34,7 +34,7 @@ class PrayTimeCard extends StatelessWidget {
         children: [
           Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
               color: ColorsManager.white,
               fontSize: 16,
               fontWeight: FontWeight.bold,
@@ -42,7 +42,7 @@ class PrayTimeCard extends StatelessWidget {
           ),
           Text(
             formatted['formattedTime']!,
-            style: TextStyle(
+            style: const TextStyle(
               color: ColorsManager.white,
               fontSize: 24,
               fontWeight: FontWeight.bold,
@@ -50,7 +50,7 @@ class PrayTimeCard extends StatelessWidget {
           ),
           Text(
             formatted['period']!,
-            style: TextStyle(
+            style: const TextStyle(
               color: ColorsManager.white,
               fontSize: 16,
               fontWeight: FontWeight.bold,

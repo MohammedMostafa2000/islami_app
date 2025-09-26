@@ -22,7 +22,8 @@ class _QuranState extends State<Quran> {
   @override
   void initState() {
     super.initState();
-    Provider.of<MostRecentSurasProvider>(context, listen: false).loadMostRecentSuras();
+    Provider.of<MostRecentSurasProvider>(context, listen: false)
+        .loadMostRecentSuras();
     filteredList = ConstantsManager.surasList;
   }
 
@@ -31,7 +32,7 @@ class _QuranState extends State<Quran> {
     return Container(
       height: double.infinity,
       width: double.infinity,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         image: DecorationImage(
           fit: BoxFit.cover,
           image: AssetImage(ImagesManager.quranTabBackground),
@@ -41,7 +42,7 @@ class _QuranState extends State<Quran> {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12),
           child: CustomScrollView(
-            physics: BouncingScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             slivers: [
               SliverToBoxAdapter(
                 child: Column(
@@ -53,7 +54,7 @@ class _QuranState extends State<Quran> {
                         height: 140,
                       ),
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     SuraSearchTextFormField(
                       onChanged: (value) {
                         searchKey = value;
@@ -62,7 +63,9 @@ class _QuranState extends State<Quran> {
                         } else {
                           filteredList = ConstantsManager.surasList
                               .where((sura) =>
-                                  sura.suraNameEn.toLowerCase().contains(searchKey.toLowerCase()) ||
+                                  sura.suraNameEn
+                                      .toLowerCase()
+                                      .contains(searchKey.toLowerCase()) ||
                                   sura.suraNameAr.contains(searchKey))
                               .toList();
                         }
@@ -70,8 +73,8 @@ class _QuranState extends State<Quran> {
                         setState(() {});
                       },
                     ),
-                    SizedBox(height: 20),
-                    Text(
+                    const SizedBox(height: 20),
+                    const Text(
                       'Most Recently',
                       style: TextStyle(
                         fontSize: 16,
@@ -79,7 +82,7 @@ class _QuranState extends State<Quran> {
                         color: ColorsManager.offWhite,
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Consumer<MostRecentSurasProvider>(
                       builder: (context, provider, child) {
                         final mostRecentSuras = provider.mostRecentSuras;
@@ -88,15 +91,16 @@ class _QuranState extends State<Quran> {
                           child: ListView.builder(
                             itemCount: mostRecentSuras.length,
                             itemBuilder: (context, index) =>
-                                MostRecentlySuraCard(suraDataModel: mostRecentSuras[index]),
-                            physics: BouncingScrollPhysics(),
+                                MostRecentlySuraCard(
+                                    suraDataModel: mostRecentSuras[index]),
+                            physics: const BouncingScrollPhysics(),
                             scrollDirection: Axis.horizontal,
                           ),
                         );
                       },
                     ),
-                    SizedBox(height: 10),
-                    Text(
+                    const SizedBox(height: 10),
+                    const Text(
                       'Suras List',
                       style: TextStyle(
                         fontSize: 16,
@@ -104,7 +108,7 @@ class _QuranState extends State<Quran> {
                         color: ColorsManager.offWhite,
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                   ],
                 ),
               ),

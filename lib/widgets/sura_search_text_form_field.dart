@@ -12,7 +12,7 @@ class SuraSearchTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       onChanged: onChanged,
-      style: TextStyle(
+      style: const TextStyle(
         color: ColorsManager.offWhite,
         fontSize: 16,
         fontWeight: FontWeight.bold,
@@ -20,34 +20,34 @@ class SuraSearchTextFormField extends StatelessWidget {
       cursorColor: ColorsManager.white,
       decoration: InputDecoration(
         hintText: 'Sura Name',
-        hintStyle: TextStyle(
+        hintStyle: const TextStyle(
           color: ColorsManager.offWhite,
           fontSize: 16,
           fontWeight: FontWeight.bold,
         ),
-        prefixIcon: Padding(
-          padding: const EdgeInsets.all(14),
+        prefixIcon: const Padding(
+          padding: EdgeInsets.all(14),
           child: ImageIcon(
             AssetImage(IconsManager.quran),
             color: ColorsManager.gold,
           ),
         ),
         border: OutlineInputBorder(
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: ColorsManager.gold,
             width: 1,
           ),
           borderRadius: BorderRadius.circular(10),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: ColorsManager.gold,
             width: 1,
           ),
           borderRadius: BorderRadius.circular(10),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: ColorsManager.gold,
             width: 1,
           ),

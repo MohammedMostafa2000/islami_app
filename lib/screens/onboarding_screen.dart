@@ -18,13 +18,12 @@ class OnBoardingScreen extends StatelessWidget {
               ImagesManager.islmaiLogo,
               height: 140,
             ),
-            SizedBox(height: 80),
+            const SizedBox(height: 80),
             Expanded(
               child: IntroductionScreen(
-                
                 pages: [
                   PageViewModel(
-                    decoration: PageDecoration(
+                    decoration: const PageDecoration(
                       imagePadding: EdgeInsets.all(0),
                       pageMargin: EdgeInsets.all(0),
                       titleTextStyle: TextStyle(
@@ -47,9 +46,7 @@ class OnBoardingScreen extends StatelessWidget {
                     ),
                   ),
                   PageViewModel(
-                    
-                    decoration: PageDecoration(
-
+                    decoration: const PageDecoration(
                       imagePadding: EdgeInsets.all(0),
                       titlePadding: EdgeInsets.only(bottom: 50),
                       pageMargin: EdgeInsets.all(0),
@@ -73,7 +70,7 @@ class OnBoardingScreen extends StatelessWidget {
                     ),
                   ),
                   PageViewModel(
-                    decoration: PageDecoration(
+                    decoration: const PageDecoration(
                       imagePadding: EdgeInsets.all(0),
                       pageMargin: EdgeInsets.all(0),
                       titlePadding: EdgeInsets.only(bottom: 50),
@@ -97,7 +94,7 @@ class OnBoardingScreen extends StatelessWidget {
                     ),
                   ),
                   PageViewModel(
-                    decoration: PageDecoration(
+                    decoration: const PageDecoration(
                       imagePadding: EdgeInsets.all(0),
                       titlePadding: EdgeInsets.only(bottom: 50),
                       pageMargin: EdgeInsets.all(0),
@@ -121,7 +118,7 @@ class OnBoardingScreen extends StatelessWidget {
                     ),
                   ),
                   PageViewModel(
-                    decoration: PageDecoration(
+                    decoration: const PageDecoration(
                       imagePadding: EdgeInsets.all(0),
                       titlePadding: EdgeInsets.only(bottom: 50),
                       pageMargin: EdgeInsets.all(0),
@@ -151,12 +148,12 @@ class OnBoardingScreen extends StatelessWidget {
                 dotsDecorator: DotsDecorator(
                   color: Colors.grey,
                   activeColor: ColorsManager.gold,
-                  activeSize: Size(20, 8),
+                  activeSize: const Size(20, 8),
                   activeShape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
-                next: Text(
+                next: const Text(
                   'Next',
                   style: TextStyle(
                     color: ColorsManager.gold,
@@ -164,7 +161,7 @@ class OnBoardingScreen extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                back: Text(
+                back: const Text(
                   'Back',
                   style: TextStyle(
                     color: ColorsManager.gold,
@@ -172,7 +169,7 @@ class OnBoardingScreen extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                done: Text(
+                done: const Text(
                   'Finish',
                   style: TextStyle(
                     color: ColorsManager.gold,
@@ -182,7 +179,8 @@ class OnBoardingScreen extends StatelessWidget {
                 ),
                 onDone: () async {
                   Navigator.pushNamed(context, AppRoutes.home);
-                  SharedPreferences prefs = await SharedPreferences.getInstance();
+                  SharedPreferences prefs =
+                      await SharedPreferences.getInstance();
                   await prefs.setBool('isFirstTime', false);
                 },
               ),

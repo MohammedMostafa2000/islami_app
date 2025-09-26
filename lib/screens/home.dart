@@ -15,10 +15,10 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final List<Widget> tabs = [
-    Quran(),
-    Hadith(),
-    Sebha(),
-    RadioTab(),
+    const Quran(),
+    const Hadith(),
+    const Sebha(),
+    const RadioTab(),
     PrayTimes(),
   ];
   int selectedIndex = 0;
@@ -32,13 +32,18 @@ class _HomeState extends State<Home> {
           selectedIndex = tappedIndex;
           setState(() {});
         },
-        items: [
-          BottomNavigationBarItem(icon: ImageIcon(AssetImage(IconsManager.quran)), label: 'Quran'),
+        items: const [
           BottomNavigationBarItem(
-              icon: ImageIcon(AssetImage(IconsManager.hadith)), label: 'Hadith'),
-          BottomNavigationBarItem(icon: ImageIcon(AssetImage(IconsManager.sebha)), label: 'Sebha'),
-          BottomNavigationBarItem(icon: ImageIcon(AssetImage(IconsManager.radio)), label: 'Radio'),
-          BottomNavigationBarItem(icon: ImageIcon(AssetImage(IconsManager.time)), label: 'Time'),
+              icon: ImageIcon(AssetImage(IconsManager.quran)), label: 'Quran'),
+          BottomNavigationBarItem(
+              icon: ImageIcon(AssetImage(IconsManager.hadith)),
+              label: 'Hadith'),
+          BottomNavigationBarItem(
+              icon: ImageIcon(AssetImage(IconsManager.sebha)), label: 'Sebha'),
+          BottomNavigationBarItem(
+              icon: ImageIcon(AssetImage(IconsManager.radio)), label: 'Radio'),
+          BottomNavigationBarItem(
+              icon: ImageIcon(AssetImage(IconsManager.time)), label: 'Time'),
         ],
       ),
       body: tabs[selectedIndex],

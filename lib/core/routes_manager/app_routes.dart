@@ -13,11 +13,10 @@ class AppRoutes {
   static const String onBoardingScreen = '/onBoardingScreen';
 
   static Map<String, WidgetBuilder> routes = {
-    splash: (_) => Splash(),
-    home: (_) => Home(),
-    quranDetails:(_)=>QuranDetails(),
-    hadithDetails:(_)=>HadithDetails(),
-    onBoardingScreen:(_)=>OnBoardingScreen(),
-    
+    splash: (_) => const Splash(),
+    home: (_) => const Home(),
+    quranDetails: (_) => const QuranDetails(),
+    hadithDetails: (_) => const HadithDetails(),
+    onBoardingScreen: (_) => const OnBoardingScreen(),
   };
 }

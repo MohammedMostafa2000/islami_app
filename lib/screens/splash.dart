@@ -24,7 +24,7 @@ class _SplashState extends State<Splash> {
   Future<void> checkFirstTime() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     bool isFirstTime = prefs.getBool('isFirstTime') ?? true;
-    Timer(Duration(seconds: 2), () {
+    Timer(const Duration(seconds: 2), () {
       isFirstTime
           ? Navigator.pushReplacementNamed(context, AppRoutes.onBoardingScreen)
           : Navigator.pushReplacementNamed(context, AppRoutes.home);

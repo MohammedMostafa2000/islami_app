@@ -18,7 +18,7 @@ class RadioTab extends StatelessWidget {
           child: Container(
             height: double.infinity,
             width: double.infinity,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 fit: BoxFit.fill,
                 image: AssetImage(ImagesManager.radioTabBackground),
@@ -34,7 +34,7 @@ class RadioTab extends StatelessWidget {
                         ImagesManager.islmaiLogo,
                         height: 140,
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       Container(
                         height: 40,
                         decoration: BoxDecoration(
@@ -51,15 +51,15 @@ class RadioTab extends StatelessWidget {
                           ),
                           labelColor: ColorsManager.black,
                           unselectedLabelColor: Colors.white,
-                          labelStyle: TextStyle(
+                          labelStyle: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
                           ),
-                          unselectedLabelStyle: TextStyle(
+                          unselectedLabelStyle: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
                           ),
-                          tabs: [
+                          tabs: const [
                             Text(
                               'Radio',
                             ),
@@ -69,31 +69,34 @@ class RadioTab extends StatelessWidget {
                           ],
                         ),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       Expanded(
                         child: TabBarView(
                           children: [
                             viewModel.isLoading
-                                ? Center(
+                                ? const Center(
                                     child: CircularProgressIndicator(
                                       color: ColorsManager.gold,
                                     ),
                                   )
                                 : viewModel.radiosList.isNotEmpty
                                     ? ListView.builder(
-                                        physics: BouncingScrollPhysics(),
+                                        physics: const BouncingScrollPhysics(),
                                         itemCount: viewModel.radiosList.length,
-                                        itemBuilder: (context, index) => RadioItemCard(
+                                        itemBuilder: (context, index) =>
+                                            RadioItemCard(
                                           index: index,
-                                          radioDataModel: viewModel.radiosList[index],
+                                          radioDataModel:
+                                              viewModel.radiosList[index],
                                         ),
                                       )
-                                    : Center(
+                                    : const Center(
                                         child: Text(
                                         'No Radio',
-                                        style: TextStyle(color: ColorsManager.white),
+                                        style: TextStyle(
+                                            color: ColorsManager.white),
                                       )),
-                            Center(
+                            const Center(
                               child: Text(
                                 'reciters',
                                 style: TextStyle(color: ColorsManager.white),
@@ -141,7 +144,7 @@ class _RadioItemCardState extends State<RadioItemCard> {
         height: 133,
         width: double.infinity,
         decoration: BoxDecoration(
-          image: DecorationImage(
+          image: const DecorationImage(
               image: AssetImage(ImagesManager.radioItemCardBackground),
               alignment: Alignment.bottomCenter),
           color: ColorsManager.gold,
@@ -152,7 +155,7 @@ class _RadioItemCardState extends State<RadioItemCard> {
           children: [
             Text(
               widget.radioDataModel.name ?? '',
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
                 color: ColorsManager.black,
@@ -163,10 +166,12 @@ class _RadioItemCardState extends State<RadioItemCard> {
               children: [
                 IconButton(
                   onPressed: () async {
-                    viewModel.togglePlay(widget.index, widget.radioDataModel.url!);
+                    viewModel.togglePlay(
+                        widget.index, widget.radioDataModel.url!);
                   },
                   iconSize: 55,
-                  icon: Icon(isPlaying ? Icons.pause : Icons.play_arrow_rounded),
+                  icon:
+                      Icon(isPlaying ? Icons.pause : Icons.play_arrow_rounded),
                   color: ColorsManager.black,
                 ),
                 IconButton(
@@ -175,7 +180,9 @@ class _RadioItemCardState extends State<RadioItemCard> {
                   },
                   iconSize: 35,
                   icon: Icon(
-                    isMuted ? Icons.volume_off_rounded : Icons.volume_up_rounded,
+                    isMuted
+                        ? Icons.volume_off_rounded
+                        : Icons.volume_up_rounded,
                   ),
                   color: ColorsManager.black,
                 ),

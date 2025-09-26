@@ -4,7 +4,7 @@ class RadioDataModel {
   String? url;
   String? recentDate;
 
-  RadioDataModel({    
+  RadioDataModel({
     this.id,
     this.name,
     this.url,

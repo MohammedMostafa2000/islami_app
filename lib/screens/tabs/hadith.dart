@@ -11,7 +11,7 @@ class Hadith extends StatelessWidget {
     return Container(
       height: double.infinity,
       width: double.infinity,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         image: DecorationImage(
           alignment: Alignment.topCenter,
           image: AssetImage(ImagesManager.hadithBackground),
@@ -24,7 +24,7 @@ class Hadith extends StatelessWidget {
               ImagesManager.islmaiLogo,
               height: 140,
             ),
-            SizedBox(height: 55),
+            const SizedBox(height: 55),
             Expanded(
               child: CarouselSlider(
                 items: List.generate(50, (index) => index + 1)
@@ -38,7 +38,7 @@ class Hadith extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
           ],
         ),
       ),

@@ -4,7 +4,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 class PrefsHandler {
   static void addSuraIndex(int suraIndex) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-    List<String> mostRecentSurasIndex = prefs.getStringList('most_recent_suras_index') ?? [];
+    List<String> mostRecentSurasIndex =
+        prefs.getStringList('most_recent_suras_index') ?? [];
     if (mostRecentSurasIndex.length >= 6) {
       mostRecentSurasIndex.remove(mostRecentSurasIndex.first);
     }
@@ -19,7 +20,8 @@ class PrefsHandler {
 
   static Future<List<SuraDataModel>> getMostRecentSuras() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-    List<String> mostRecentSurasIndex = prefs.getStringList('most_recent_suras_index') ?? [];
+    List<String> mostRecentSurasIndex =
+        prefs.getStringList('most_recent_suras_index') ?? [];
     List<SuraDataModel> mostRecentSuras = [];
     for (var i = 0; i < mostRecentSurasIndex.length; i++) {
       int index = int.parse(mostRecentSurasIndex[i]);

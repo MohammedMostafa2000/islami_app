@@ -28,7 +28,7 @@ class _SebhaState extends State<Sebha> {
     return Container(
       height: double.infinity,
       width: double.infinity,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         image: DecorationImage(
           fit: BoxFit.fill,
           image: AssetImage(ImagesManager.sebhaTabBackground),
@@ -42,18 +42,20 @@ class _SebhaState extends State<Sebha> {
               ImagesManager.islmaiLogo,
               height: 140,
             ),
-            SizedBox(height: 16),
-            Text(
+            const SizedBox(height: 16),
+            const Text(
               'سَبِّحِ اسْمَ رَبِّكَ الأعلى',
-              style:
-                  TextStyle(fontSize: 36, fontWeight: FontWeight.bold, color: ColorsManager.white),
+              style: TextStyle(
+                  fontSize: 36,
+                  fontWeight: FontWeight.bold,
+                  color: ColorsManager.white),
             ),
-            SizedBox(height: 60),
+            const SizedBox(height: 60),
             InkWell(
               onTap: rotateImage,
               child: AnimatedRotation(
                 turns: angle,
-                duration: Duration(milliseconds: 500),
+                duration: const Duration(milliseconds: 500),
                 child: Stack(
                   alignment: Alignment.center,
                   children: [
@@ -71,7 +73,7 @@ class _SebhaState extends State<Sebha> {
                                 : counter < 67
                                     ? 'الله أكبر'
                                     : 'سبحان الله',
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 36,
                               fontWeight: FontWeight.bold,
                               color: ColorsManager.white,
@@ -79,7 +81,7 @@ class _SebhaState extends State<Sebha> {
                           ),
                           Text(
                             '$counter',
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 36,
                               fontWeight: FontWeight.bold,
                               color: ColorsManager.white,

@@ -35,7 +35,7 @@ class MostRecentlySuraCard extends StatelessWidget {
                 children: [
                   Text(
                     suraDataModel.suraNameEn,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
                       color: ColorsManager.black,
@@ -43,7 +43,7 @@ class MostRecentlySuraCard extends StatelessWidget {
                   ),
                   Text(
                     suraDataModel.suraNameAr,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
                       color: ColorsManager.black,
@@ -51,7 +51,7 @@ class MostRecentlySuraCard extends StatelessWidget {
                   ),
                   Text(
                     suraDataModel.versesNumber,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
                       color: ColorsManager.black,

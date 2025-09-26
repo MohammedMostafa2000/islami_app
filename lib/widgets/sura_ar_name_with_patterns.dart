@@ -31,7 +31,7 @@ class SuraArNameWithPatterns extends StatelessWidget {
         ),
         Text(
           arguments.suraNameAr,
-          style: TextStyle(
+          style: const TextStyle(
             color: ColorsManager.gold,
             fontSize: 30,
             fontWeight: FontWeight.bold,

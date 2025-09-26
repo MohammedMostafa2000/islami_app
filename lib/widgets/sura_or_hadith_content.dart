@@ -13,18 +13,20 @@ class SuraOrHadithContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: content.isEmpty
-          ? Center(
+          ? const Center(
               child: CircularProgressIndicator(color: ColorsManager.gold),
             )
           : SingleChildScrollView(
-              physics: BouncingScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 20),
                 child: Text(
                   content,
                   textDirection: TextDirection.rtl,
-                  style: TextStyle(
-                      fontSize: 20, color: ColorsManager.gold, fontWeight: FontWeight.w600),
+                  style: const TextStyle(
+                      fontSize: 20,
+                      color: ColorsManager.gold,
+                      fontWeight: FontWeight.w600),
                 ),
               ),
             ),

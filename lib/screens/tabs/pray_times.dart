@@ -26,7 +26,7 @@ class PrayTimes extends StatelessWidget {
         final nextPrayer = _getNextPrayer(viewModel.timings);
 
         return viewModel.timings.isEmpty
-            ? Center(
+            ? const Center(
                 child: CircularProgressIndicator(
                   color: ColorsManager.gold,
                 ),
@@ -34,7 +34,7 @@ class PrayTimes extends StatelessWidget {
             : Container(
                 height: double.infinity,
                 width: double.infinity,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   image: DecorationImage(
                     fit: BoxFit.fill,
                     image: AssetImage(ImagesManager.timeTabBackground),
@@ -44,14 +44,14 @@ class PrayTimes extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8),
                     child: SingleChildScrollView(
-                      physics: BouncingScrollPhysics(),
+                      physics: const BouncingScrollPhysics(),
                       child: Column(
                         children: [
                           Image.asset(
                             ImagesManager.islmaiLogo,
                             height: 140,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                           Container(
@@ -63,7 +63,7 @@ class PrayTimes extends StatelessWidget {
                             ),
                             child: Column(
                               children: [
-                                Text(
+                                const Text(
                                   'Pray Time',
                                   style: TextStyle(
                                     color: ColorsManager.darkGold,
@@ -73,7 +73,7 @@ class PrayTimes extends StatelessWidget {
                                 ),
                                 Text(
                                   viewModel.day,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: ColorsManager.black,
                                     fontSize: 20,
                                     fontWeight: FontWeight.bold,
@@ -83,7 +83,8 @@ class PrayTimes extends StatelessWidget {
                                   child: CarouselSlider.builder(
                                     itemCount: viewModel.timings.length,
                                     itemBuilder: (context, index, realIndex) {
-                                      final entry = viewModel.timings.entries.elementAt(index);
+                                      final entry = viewModel.timings.entries
+                                          .elementAt(index);
 
                                       return PrayTimeCard(
                                         title: entry.key,
@@ -102,20 +103,20 @@ class PrayTimes extends StatelessWidget {
                                   nextPrayer != null
                                       ? 'Next Prayer - ${nextPrayer.key} at ${nextPrayer.value}'
                                       : 'No more prayers today',
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: ColorsManager.black,
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 20,
                                 )
                               ],
                             ),
                           ),
-                          SizedBox(height: 20),
-                          Row(
+                          const SizedBox(height: 20),
+                          const Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Text(
@@ -127,12 +128,13 @@ class PrayTimes extends StatelessWidget {
                               ),
                             ],
                           ),
-                          SizedBox(height: 20),
+                          const SizedBox(height: 20),
                           GridView.builder(
                             shrinkWrap: true,
-                            physics: NeverScrollableScrollPhysics(),
+                            physics: const NeverScrollableScrollPhysics(),
                             itemCount: azkarList.length,
-                            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 2,
                               childAspectRatio: 390 / 538,
                               mainAxisSpacing: 20,
@@ -141,7 +143,7 @@ class PrayTimes extends StatelessWidget {
                             itemBuilder: (context, index) =>
                                 AzkarCard(azkarDataModel: azkarList[index]),
                           ),
-                          SizedBox(height: 20),
+                          const SizedBox(height: 20),
                         ],
                       ),
                     ),

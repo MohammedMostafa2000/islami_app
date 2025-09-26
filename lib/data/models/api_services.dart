@@ -15,7 +15,8 @@ abstract class ApiServices {
   }
 
   static Future<PrayTimeResponse> getPrayTimes() async {
-    Uri url = Uri.parse('https://api.aladhan.com/v1/timingsByCity?city=cairo&country=egypt');
+    Uri url = Uri.parse(
+        'https://api.aladhan.com/v1/timingsByCity?city=cairo&country=egypt');
     var response = await http.get(url);
     var json = jsonDecode(response.body);
     return PrayTimeResponse.fromJson(json);

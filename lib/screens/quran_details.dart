@@ -34,7 +34,7 @@ class _QuranDetailsState extends State<QuranDetails> {
         child: Column(
           children: [
             SuraArNameWithPatterns(arguments: arguments),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             SuraOrHadithContent(content: suraContent),
             Image.asset(ImagesManager.suraDetailsBackground),
           ],
@@ -44,7 +44,8 @@ class _QuranDetailsState extends State<QuranDetails> {
   }
 
   void loadSuraContent(int suraIndex) async {
-    String fileContent = await rootBundle.loadString('assets/files/suras/$suraIndex.txt');
+    String fileContent =
+        await rootBundle.loadString('assets/files/suras/$suraIndex.txt');
     var suraLines = fileContent.trim().split('\n');
     List<String> suraLinesFinal = [];
     for (var i = 0; i < suraLines.length; i++) {
