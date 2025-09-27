@@ -1,16 +1,13 @@
-# islami_app
+# Islami App
 
-A new Flutter project.
+An Islamic mobile application built with **Flutter**, designed to provide users with a rich set of religious resources in one place.
 
-## Getting Started
+## 🎥 Demo
+[Watch Demo Video](https://drive.google.com/file/d/1UR5b3a8_r-e9Xu9Ry8K6nrtLwV7ZB3SY/view?usp=drive_link)
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## ✨ Features
+- 📖 Read Quranic Surahs directly within the app.  
+- 📜 Browse collections of authentic Hadiths.  
+- 🎧 Listen to live Quran radio with recitations by renowned reciters.  
+- 🕋 Get accurate daily prayer times.  
+- 🙏 Access daily Azkar and supplications for spiritual guidance. 
